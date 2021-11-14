@@ -46,7 +46,7 @@ if (!isset($_SESSION['admin']))
             </div>
             <?php $ambil=$koneksi->query('SELECT * FROM admin'); ?>
             <?php while($pecah=$ambil->fetch_assoc()){ ?>
-                <span class="navbar-text" style="color: white; width: 650px;font-size: 16px;">
+                <span class="navbar-text" style="color: white; width: 1000px;font-size: 16px;">
                     <marquee behavior="scroll" direction="right">Selamat datang, <?php echo $pecah['nama_lengkap'] ; ?> </marquee>
                 </span>
                 <div style="color: white; padding: 15px 50px 5px 0px; float: right; font-size: 16px;">

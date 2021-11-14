@@ -1,4 +1,4 @@
-<h2><center> Data Kategori</center></h2>
+<h2><center>DATA KATEGORI</center></h2>
 <br>
 <?php 
 $semuadata = array();
@@ -15,8 +15,8 @@ while ($tiap = $ambil->fetch_assoc()) {
 <table class='table table-bordered' align="center">
 	 <thead>
 		<tr>
-			<th><center>no</center></th>
-			<th><center>Kategori</center></th>
+			<th><center>NO</center></th>
+			<th><center>KATEGORI</center></th>
 <!-- 			<th><center>Aksi</center></th> -->
 		</tr>
 	</thead>

@@ -1,4 +1,4 @@
-<h2>Ubah Produk</h2>
+<h2><center>UBAH PRODUK</center></h2>
 
 
 <?php 
@@ -62,7 +62,8 @@ while ($tiap = $ambil->fetch_assoc())
 		<label>Deskripsi</label>
 		<textarea name="deskripsi" class="form-control" rows="3"><?php echo $pecah['deskripsi_produk']; ?></textarea>
 	</div>
-	<button class="btn btn-primary" name="ubah">Ubah</button>
+	<a href="index.php?halaman=produk" class="btn btn-danger">KEMBALI</a>
+	<button class="btn btn-primary" name="ubah">UBAH</button>
 
 	<?php 
 	if (isset($_POST['ubah'])) 

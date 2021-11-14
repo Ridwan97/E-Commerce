@@ -20,7 +20,7 @@ if (!isset($_SESSION['keranjang']) OR empty($_SESSION['keranjang']))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Checkout</title>
+	<title>CHECKOUT</title>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<!-- Compiled and minified JavaScript -->
@@ -45,11 +45,11 @@ if (!isset($_SESSION['keranjang']) OR empty($_SESSION['keranjang']))
 			<table class="table highlight centered hoverable">		
 				<thead>
 					<tr>
-						<th>no</th>
-						<th>Produk</th>
-						<th>Harga</th>
-						<th>Jumlah</th>
-						<th>Sub Harga</th>
+						<th>NO</th>
+						<th>PRODUK</th>
+						<th>HARGA</th>
+						<th>JUMLAH</th>
+						<th>SUB HARGA</th>
 					</tr>
 				</thead>
 				<tbody>

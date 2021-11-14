@@ -1,31 +1,38 @@
-<h2><center>Data Pembelian</center></h2>
+ <h2><center>DATA PEMBELIAN</center></h2>
 <br>
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th><center>No</center></th>
-			<th><center>Nama Pelanggan</center></th>
-			<th><center>Tanggal</center></th>
-			<th><center>Status Pengiriman</center></th>
-			<th><center>Total</center></th>
-			<th><center>Aksi</center></th>	
+			<th><center>NO</center></th>
+			<th><center>NAMA PELANGGAN</center></th>
+			<th><center>TANGGAL</center></th>
+			<th><center>STATUS PENGIRIMAN</center></th>
+			<th><center>TOTAL</center></th>
+			<th><center>AKSI</center></th>	
 		</tr>
 	</thead>
 	<tbody align="center">
-		<?php $nomor=1 ; ?>
-		<?php $ambil=$koneksi->query('SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan'); ?>
-		<?php while($pecah = $ambil->fetch_assoc()) { ?>
+
+					<?php $nomor=1; ?>
+		<?php  $page = (isset($_GET['page']))? (int) $_GET['page'] : 1;
+		$limit = 10;
+		$limitStart = ($page - 1) * $limit;
+		$SqlQuery=$koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan
+			LIMIT ".$limitStart.",".$limit);
+		$nomor = $limitStart + 1;
+		while($row = mysqli_fetch_array($SqlQuery)){   
+			?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
-			<td><?php echo $pecah['nama_pelanggan'] ; ?></td>
-			<td><?php echo date("d F Y",strtotime($pecah['tanggal_pembelian'])) ; ?></td>
-			<td><?php echo $pecah['status_pembelian']; ?></td>
-			<td>Rp.<?php echo number_format($pecah['total_pembelian']); ?></td>
+			<td><?php echo $row['nama_pelanggan'] ; ?></td>
+			<td><?php echo date("d F Y",strtotime($row['tanggal_pembelian'])) ; ?></td>
+			<td><?php echo $row['status_pembelian']; ?></td>
+			<td>Rp.<?php echo number_format($row['total_pembelian']); ?></td>
 			<td>
-				<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" 
-					class="btn btn-info">detail</a>
-					<?php if($pecah['status_pembelian']!=='Belum Dibayar'): ?>
-					<a href="index.php?halaman=pembayaran&id=<?php echo $pecah['id_pembelian'] ?>"> <button class="btn btn-waring">pembayaran</button></a>
+				<a href="index.php?halaman=detail&id=<?php echo $row['id_pembelian']; ?>" 
+					class="btn btn-info">DETAIL</a>
+					<?php if($row['status_pembelian']!=='Belum Dibayar'): ?>
+					<a href="index.php?halaman=pembayaran&id=<?php echo $row['id_pembelian'] ?>"> <button class="btn btn-waring">PEMBAYARAN</button></a>
 				<?php endif ?>
 			</td>
 		</tr>
@@ -33,3 +40,65 @@
 		<?php } ?>
 	</tbody>
 </table>
+<br>
+<div align="right">
+	<ul class="pagination">
+		<?php
+    // Jika page = 1, maka LinkPrev disable
+		if($page == 1){ 
+			?>        
+
+			<!-- link Previous Page disable --> 
+			<li class="disabled"><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+			<?php
+		} else{ 
+			$LinkPrev = ($page > 1)? $page - 1 : 1; 
+			?>
+
+			<!-- link Previous Page --> 
+			<li class="active"><a href="index.php?halaman=pembelian&page=<?php echo $LinkPrev ; ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+		<?php }  ?>
+
+		<?php
+		$SqlQuery = mysqli_query($koneksi, "SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan");        
+
+      //Hitung semua jumlah data yang berada pada tabel Sisawa
+		$JumlahData = mysqli_num_rows($SqlQuery);
+
+      // Hitung jumlah halaman yang tersedia
+		$jumlahPage = ceil($JumlahData / $limit); 
+
+      // Jumlah link number 
+		$jumlahNumber = 1; 
+
+      // Untuk awal link number
+		$startNumber = ($page > $jumlahNumber)? $page - $jumlahNumber : 1; 
+
+      // Untuk akhir link number
+		$endNumber = ($page < ($jumlahPage - $jumlahNumber))? $page + $jumlahNumber : $jumlahPage; 
+
+		for($i = $startNumber; $i <= $endNumber; $i++){
+			$linkActive = ($page == $i)? '<li class="active">' : '';
+			?>
+			<li  class="waves-effect"><?php echo $linkActive; ?><a href="index.php?halaman=pembelian&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+			<?php
+		}
+		?>
+
+		<!-- link Next Page -->
+		<?php       
+		if($page == $jumlahPage){ 
+			?>
+			<li class="active"><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+			<?php
+		}
+		else{
+			$linkNext = ($page < $jumlahPage)? $page + 1 : $jumlahPage;
+			?>
+			<li><a href="index.php?halaman=pembelian&page=<?php echo $linkNext; ?>"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+			<?php
+		}
+		?>
+	</ul>
+
+</div>

@@ -96,13 +96,13 @@ if (!isset($_SESSION['pelanggan']))
 			<table class="table centered highlight hoverable">
 				<thead>
 					<tr>
-						<th>No</th>
-						<th>Nama produk</th>
-						<th>Harga</th>
-						<th>berat</th>
-						<th>Jumlah</th>
-						<th>Subberat</th>
-						<th>Subtotal</th>
+						<th>NO</th>
+						<th>NAMA PRODUK</th>
+						<th>HARGA</th>
+						<th>BERAT</th>
+						<th>JUMLAH</th>
+						<th>SUBBERAT</th>
+						<th>SUBTOTAL</th>
 					</tr>
 				</thead>
 				<tbody>

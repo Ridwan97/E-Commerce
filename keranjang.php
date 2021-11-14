@@ -34,16 +34,16 @@ if(empty($_SESSION['keranjang']) OR !isset($_SESSION['keranjang']))
 	<!-- BODY -->
 	<section class="konten">
 		<div class="container">
-			<h1 align="center">Keranjang belanja</h1>
+			<h1 align="center">KERANJANG BELANJA</h1>
 			<table class="table centered highlight hoverable">		
 				<thead>
 					<tr>
-						<th>no</th>
-						<th>produk</th>
-						<th>harga</th>
-						<th>jumlah</th>
-						<th>subharga</th>
-						<th>aksi</th>
+						<th>NO</th>
+						<th>PRODUK</th>
+						<th>HARGA</th>
+						<th>JUMLAH</th>
+						<th>SUBHARGA</th>
+						<th>AKSI</th>
 					</tr>
 				</thead>
 				<tbody>

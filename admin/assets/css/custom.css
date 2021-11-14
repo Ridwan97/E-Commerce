@@ -376,4 +376,6 @@ line-height: 1.428571429;
    
 }
 
-
+.table > tbody > tr > td {
+     vertical-align: middle;
+}

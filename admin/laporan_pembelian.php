@@ -21,30 +21,33 @@ if (isset($_POST["kirim"]))
 	 // echo "</pre>";
 }
 ?>
-
-
-
-
-
-<h2>Laporan Pembelian <?php echo $tgl_mulai ?> Sampai <?php echo $tgl_selesai ?></h2>	
+  <style>
+      .table > tbody > tr > td {
+     vertical-align: middle;
+     text-align: center;
+}
+  </style>
+<h2><center>LAPORAN PEMBELIAN <?php if (isset($_POST["kirim"])): ?>
+	<?php echo $tgl_mulai ?> SAMPAI <?php echo $tgl_selesai ?>
+<?php endif ?></center></h2>	
 <hr>
 
 <form method="post"	>	
 	<div class="row">
 			<div class="col-md-3">
 				<div class="form-group">
-					<label class="form-group">Tanggal Mulai</label>
+					<label class="form-group">TANGGAL AWAL</label>
 					<input type="date" class="form-control" name="tglm" value="<?php echo $tgl_mulai ?>">	
 				</div>
 			</div>	
 			<div class="col-md-3">
 				<div class="form-group">
-					<label class="form-group">Tanggal Mulai</label>
+					<label class="form-group">TANGGAL AKHIR</label>
 					<input type="date" class="form-control" name="tgls" value="<?php echo 	$tgl_selesai ?>">
 				</div>
 			</div>
 		<div class="col-md-3">
-			<label style="margin-bottom: 15px;">Status</label>
+			<label style="margin-bottom: 15px;">STATUS</label>
 			<select class="form-control" name="status">
 				<option value="">Pilih Status</option>
 				<option value="Belum Dibayar">Belum Dibayar</option>
@@ -68,10 +71,10 @@ if (isset($_POST["kirim"]))
 	<thead>
 		<tr>
 			<th>NO</th>
-			<th>Pelanggan</th>
-			<th>Tanggal</th>
-			<th>Status</th>	
-			<th>Jumlah</th>	
+			<th>PELANGGAN</th>
+			<th>TANGGAL</th>
+			<th>STATUS</th>	
+			<th>JUMLAH</th>	
 		</tr>	
 	</thead>	
 	<tbody> 

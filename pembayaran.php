@@ -58,22 +58,22 @@ if ($id_pelanggan_login !==$id_pelanggan_beli)
     <div class="row">
       <form method="post" enctype="multipart/form-data">
         <div class="row">
-          <div class="input-field">
+          <div class="input-field required">
             <i class="material-icons prefix">assignment_ind</i>
             <input id="icon_prefix" type="text" required class="validate" name="nama" autocomplete="off">
             <label for="icon_prefix">Nama Penyetor</label>
           </div>
-          <div class="input-field">
+          <div class="input-field required">
             <i class="material-icons prefix">credit_card</i>
             <input id="icon_email" type="text" required class="validate" name="bank" autocomplete="off">
             <label for="icon_email">Bank</label>
           </div>
-          <div class="input-field">
+          <div class="input-field required">
             <i class="material-icons prefix">done_all</i>
             <input id="icon_lock" type="number" required class="validate" name="jumlah" min="1">
             <label for="icon_lock">Jumlah</label>
           </div>
-          <div class="file-field input-field">
+          <div class="file-field required input-field">
             <div class="btn">
               <span>File</span>
               <input type="file" name="bukti">
@@ -82,6 +82,7 @@ if ($id_pelanggan_login !==$id_pelanggan_beli)
               <input class="file-path validate" type="text">
             </div>
           </div>
+          <a href="riwayat.php" class="btn red">Kembali</a>
           <button class="btn waves-effect waves-light right" name="kirim">Kirim
             <i class="material-icons right">send</i>
           </button> <br> <br> <br>

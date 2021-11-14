@@ -1,7 +1,7 @@
 <?php 
 $koneksi = new mysqli ('localhost','root','','computeronshop');
 ?>
-<h2>Detail Pembelian</h2>
+<h2><center>DETAIL PEMBELIAN</center></h2>
 <?php 
 $ambil = $koneksi->query("SELECT * FROM pembelian JOIN pelanggan
 	ON pembelian.id_pelanggan=pelanggan.id_pelanggan
@@ -10,8 +10,13 @@ $detail=$ambil->fetch_assoc();
 ?>
 <!-- <pre><?php print_r($detail); ?></pre>
  -->
-
-
+  <style>
+      .table > tbody > tr > td {
+     vertical-align: middle;
+     text-align: center;
+}
+  </style>
+<br>
 <div class="row">
 	<div class="col-md-4">
 		<h3><strong>Pembelian</strong></h3>
@@ -37,15 +42,15 @@ $detail=$ambil->fetch_assoc();
 
 
 
-
-<table class="table table-bordered">
+<br>
+<table class="table table-bordered ">
 	<thead>
 		<tr>
-			<th>No</th>
-			<th>Nama produk</th>
-			<th>Harga</th>
-			<th>Jumlah</th>
-			<th>Subtotal</th>
+			<th><center>NO</center></th>
+			<th><center>NAMA PRODUK</center></th>
+			<th><center>HARGA</center></th>
+			<th><center>JUMLAH</center></th>
+			<th><center>SUBTOTAL</center></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -65,3 +70,4 @@ $detail=$ambil->fetch_assoc();
 			<?php } ?>
 		</tbody>
 	</table>
+<a href="index.php?halaman=pembelian" class="btn btn-danger">KEMBALI</a>

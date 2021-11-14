@@ -1,10 +1,12 @@
-<h2> Data pembayaran</h2>
+<h2><center>DATA PEMBAYARAN</center></h2> <br>
 <?php 
 // mendapatkan id_pemebelian dari url
 $id_pembelian = $_GET['id'];
 
 // mengambil data pembayaran berdasarkan id_pembelian
-$ambil = $koneksi->query("SELECT*FROM pembayaran 	WHERE id_pembelian='$id_pembelian'");
+$ambil = $koneksi->query("SELECT * FROM pembayaran 
+	JOIN pembelian ON pembayaran.id_pembelian = pembelian.id_pembelian
+	WHERE pembayaran.id_pembelian='$id_pembelian'");
 $detail= $ambil->fetch_assoc();
 
 ?>
@@ -53,7 +55,8 @@ $detail= $ambil->fetch_assoc();
 				<option value="Barang Sudah Sampai">Barang Sudah Sampai</option>
 		</select>
 	</div>
-	<button class="btn btn-primary" name="proses">Proses</button>
+			<a href="index.php?halaman=pembelian" class="btn btn-danger">KEMBALI</a>
+	<button class="btn btn-primary" name="proses">PROSES</button>
 </form>
 
 <?php 

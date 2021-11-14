@@ -4,20 +4,22 @@ $id_produk= $_GET["id"];
 $ambil = $koneksi->query("SELECT * FROM produk LEFT JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE id_produk='$id_produk'");
 $detailproduk = $ambil->fetch_assoc();
 
-$fotoproduk = array();
-$ambilfoto = $koneksi->query("SELECT * FROM produk_foto WHERE id_produk='$id_produk' ");
-while ($tiap = $ambilfoto->fetch_assoc()) 
-{
-	$fotoproduk[]=$tiap;
-}
 
 
 // echo "<pre>";
 // print_r ($detailproduk);
-// print_r($fotoproduk);
 // echo "</pre>";
  ?>
+<style>
+table {
+    border: 1px solid #CCC;
+    border-collapse: collapse;
+}
 
+tr {
+    border: none;
+}
+</style>
 <h2><center>DETAIL PRODUK</center></h2>
 <br>  <br>	
  <table class="table">
@@ -49,4 +51,4 @@ while ($tiap = $ambilfoto->fetch_assoc())
  </table>
 
 
-<a href="index.php?halaman=produk" class="btn btn-danger">Kembali</a>
+<a href="index.php?halaman=produk" class="btn btn-danger float-right">KEMBALI</a>

@@ -4,7 +4,7 @@
 		<div class="container" id="cari">
 			<nav>
 				<div class="nav-wrapper">
-					<form action="pencarian.php" method="get" autocomplete="off">
+					<form action="#" method="get" autocomplete="off">
 						<div class="input-field">
 							<input  name="keyword" id="search" type="search" required placeholder="Cari Produk atau Toko">
 							<label class="label-icon" for="search"><i class="material-icons">search</i></label>
